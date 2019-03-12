@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="zh-Heng-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Shoptime</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
+        crossorigin="anonymous">
+
+    <style>
+        html {
+            font-size: 18px;
+        }
+        .active{
+            border-bottom: 3px solid #fff;
+        }
+        .nav-link{
+            padding: 16px 1rem;
+        }
+        .bg-container {
+            background-color: #F2F2F2;
+        }
+
+        .bg-shoptime {
+            background-color: black;
+        }
+
+        .font-bold {
+            font-weight: bold;
+        }
+
+        .select-design {
+            outline: none;
+            border: 0;
+        }
+
+        .card-design {
+            box-shadow: 0 0 10px 5px #EBEBEB;
+            border-radius: 3px;
+        }
+
+        .bg-cover {
+            background-position: center center;
+            background-size: cover;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-shoptime py-0">
+        <div class="container">
+            <a class="navbar-brand mb-0 mr-5 font-bold" href="#">Shoptime</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav font-bold">
+                    <li class="nav-item active mr-3">
+                        <a class="nav-link" href="#">HOME
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item mr-3">
+                        <a class="nav-link" href="#">ORDERS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">PRODUCT</a>
+                    </li>
+                </ul>
+                <a href="#" class="nav-link text-white font-bold ml-auto px-0">ADMIN</a>
+            </div>
+        </div>
+    </nav>
+    <div class="bg-container">
+        <div class="container">
+            <div class="row pt-4 justify-content-between">
+                <div class="col-lg-4">
+                    <div class="h5 font-bold">OVERVIEW</div>
+                </div>
+                <div class="col-lg-4 text-right">
+                    <span class="h6 text-secondary">
+                        2018/6/6
+                    </span>
+                    <i class="fas fa-caret-right mx-1" style="font-size: 10px"></i>
+                    <span class="h6 text-secondary">
+                        2018/6/13
+                    </span>
+                    <select class="select-design text-secondary h6" style="background-color: transparent;">
+                        <option value="1">Weekly</option>
+                        <option value="2">Monthy</option>
+                        <option value="3">Yearly</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-lg-4">
+                    <div class="card-design py-5 bg-white">
+                        <div class="d-flex justify-content-center">
+                            <i class="fas fa-hand-holding-usd" style="font-size: 25px"></i>
+                            <div class="font-bold ml-2">
+                                TOTAL REVENUE
+                            </div>
+                        </div>
+                        <div class="h2 font-bold text-success text-center">54,540</div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="card-design py-5 bg-white">
+                        <div class="d-flex justify-content-center">
+                            <i class="fas fa-boxes" style="font-size: 25px"></i>
+                            <div class="font-bold ml-2">
+                                TOTAL COST
+                            </div>
+                        </div>
+                        <div class="h2 font-bold text-danger text-center">12,660</div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="card-design py-5 bg-white">
+                        <div class="d-flex justify-content-center">
+                            <i class="fas fa-money-bill" style="font-size: 25px"></i>
+                            <div class="font-bold ml-2">
+                                NET INCOME
+                            </div>
+                        </div>
+                        <div class="h2 font-bold text-primary text-center">41,880</div>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-4">
+                <div class="d-xl-block d-none">
+                    <div class="card-design p-0">
+                        <div id="curve_chart" style="width: 100%; height: 500px"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-4 pb-4">
+                <div class="col-lg-6">
+                    <div class="card-design py-2 bg-white">
+                        <h5 class="pt-3 pl-5 font-bold">Transaction Website</h5>
+                        <div class="d-flex flex-column">
+                            <div class="py-3 mx-5 border-bottom border-secondary">
+                                <div class="d-flex">
+                                    <div class="align-items-center d-flex mr-auto">
+                                        <i class="fab fa-facebook mr-3" style="font-size: 60px;"></i>
+                                        <div class="h6 text-secondary d-sm-block d-none">
+                                            Facebook.com
+                                        </div>
+                                    </div>
+                                    <div class="align-items-center d-flex">
+                                        <div class="h5 mr-3">45,836</div>
+                                        <div class="d-flex text-success">
+                                            <i class="fas fa-arrow-up mr-2"></i>
+                                            <div class="h6" data-toggle="tooltip" data-placement="top" data-html="true" title="899">
+                                                20%
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="py-3 mx-5 border-bottom border-secondary">
+                                <div class="d-flex">
+                                    <div class="align-items-center d-flex mr-auto">
+                                        <i class="fab fa-google mr-3" style="font-size: 60px;"></i>
+                                        <div class="h6 text-secondary d-sm-block d-none">
+                                            google.com
+                                        </div>
+                                    </div>
+                                    <div class="align-items-center d-flex">
+                                        <div class="h5 mr-3">23,582</div>
+                                        <div class="d-flex text-success">
+                                            <i class="fas fa-arrow-up mr-2"></i>
+                                            <div class="h6" data-toggle="tooltip" data-placement="top" data-html="true" title="899">
+                                                12%
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="py-3 mx-5 border-bottom border-secondary">
+                                <div class="d-flex">
+                                    <div class="align-items-center d-flex mr-auto">
+                                        <i class="fas fa-shopping-bag mr-3" style="font-size: 60px;"></i>
+                                        <div class="h6 text-secondary d-sm-block d-none">
+                                            Shopify.com
+                                        </div>
+                                    </div>
+                                    <div class="align-items-center d-flex">
+                                        <div class="h5 mr-3">2,489</div>
+                                        <div class="d-flex text-danger">
+                                            <i class="fas fa-arrow-down mr-2"></i>
+                                            <div class="h6" data-toggle="tooltip" data-placement="top" data-html="true" title="899">
+                                                15%
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="py-3 mx-5">
+                                <div class="d-flex">
+                                    <div class="align-items-center d-flex mr-auto">
+                                        <i class="fab fa-wordpress mr-3" style="font-size: 60px;"></i>
+                                        <div class="h6 text-secondary d-sm-block d-none">
+                                            Wordpress.com
+                                        </div>
+                                    </div>
+                                    <div class="align-items-center d-flex">
+                                        <div class="h5 mr-3">1,057</div>
+                                        <div class="d-flex text-danger">
+                                            <i class="fas fa-arrow-down mr-2"></i>
+                                            <div class="h6" data-toggle="tooltip" data-placement="top" data-html="true" title="899">
+                                                30%
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 mt-lg-0 mt-4">
+                    <div class="card-design py-2 bg-white h-100">
+                        <h5 class="pt-3 pl-5 font-bold">Latest Orders</h5>
+                        <div class="d-flex flex-column">
+                            <div class="py-2 mx-5 border-bottom border-secondary">
+                                <div class="d-flex justify-content-end align-items-center">
+                                    <div class="bg-cover img-fluid d-sm-block d-none" style="width: 100px; height: 100px; background-image: url(https://images.unsplash.com/photo-1541421925154-ec536c75f76f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1534&q=80);"></div>
+                                    <div class="ml-3">
+                                        <div class="h5 font-bold">Vintage T-shirt</div>
+                                        <div class="d-flex text-secondary">
+                                            <i class="fas fa-clock mr-1" style="font-size: 17px;"></i>
+                                            <div class="h6">
+                                                2018/6/13 13:42
+                                            </div>
+                                        </div>
+                                        <div class="d-flex text-secondary">
+                                            <i class="fas fa-male mr-2 ml-1" style="font-size: 17px;"></i>
+                                            <div class="h6">
+                                                Belle Willis
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="ml-auto align-self-end">
+                                        <div class="h6 text-right">Total</div>
+                                        <div class="h5 font-bold">3,200</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="py-2 mx-5 border-bottom border-secondary">
+                                <div class="d-flex justify-content-end align-items-center">
+
+                                    <div class="bg-cover img-fluid d-sm-block d-none" style="width: 100px; height: 100px; background-image: url(https://images.unsplash.com/photo-1520048480367-7a6a4b6efb2a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1490&q=80);"></div>
+
+                                    <div class="ml-3">
+                                        <div class="h5 font-bold">Cowboy Jacket</div>
+                                        <div class="d-flex text-secondary">
+                                            <i class="fas fa-clock mr-1" style="font-size: 17px;"></i>
+                                            <div class="h6">
+                                                2018/6/13 10:45
+                                            </div>
+                                        </div>
+                                        <div class="d-flex text-secondary">
+                                            <i class="fas fa-male mr-2 ml-1" style="font-size: 17px;"></i>
+                                            <div class="h6">
+                                                Adrian Cummings
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="ml-auto align-self-end">
+                                        <div class="h6 text-right">Total</div>
+                                        <div class="h5 font-bold">2,800</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="py-2 mx-5">
+                                <div class="d-flex justify-content-end align-items-center">
+
+                                    <div class="bg-cover img-fluid d-sm-block d-none" style="width: 100px; height: 100px; background-image: url(https://images.unsplash.com/photo-1544143040-bee49956d6cd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1370&q=80);"></div>
+
+                                    <div class="ml-3">
+                                        <div class="h5 font-bold">Coach Coat</div>
+                                        <div class="d-flex text-secondary">
+                                            <i class="fas fa-clock mr-1" style="font-size: 17px;"></i>
+                                            <div class="h6">
+                                                2018/6/13 8:26
+                                            </div>
+                                        </div>
+                                        <div class="d-flex text-secondary">
+                                            <i class="fas fa-male mr-2 ml-1" style="font-size: 17px;"></i>
+                                            <div class="h6">
+                                                Lura Holland
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="ml-auto align-self-end">
+                                        <div class="h6 text-right">Total</div>
+                                        <div class="h5 font-bold">1,600</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+            crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+            crossorigin="anonymous"></script>
+
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+        <script>
+            $(function () {
+                $('[data-toggle="tooltip"]').tooltip()
+            })
+        </script>
+        <script type="text/javascript">
+            google.charts.load('current', { 'packages': ['corechart'] });
+            google.charts.setOnLoadCallback(drawChart);
+
+            function drawChart() {
+                var data = google.visualization.arrayToDataTable([
+                    ['Year', 'Sales', 'Expenses'],
+                    ['2004', 1000, 400],
+                    ['2005', 1170, 460],
+                    ['2006', 660, 1120],
+                    ['2007', 1030, 540]
+                ]);
+
+                var options = {
+                    title: 'Activity',
+                    legend: { position: 'bottom' }
+                };
+
+                var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+
+                chart.draw(data, options);
+            }
+        </script>
+</body>
+
+</html>
